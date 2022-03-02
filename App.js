@@ -14,6 +14,7 @@ import Task from "./components/Task";
 export default function App() {
   const [task, setTask] = useState();
   const [taskItems, setTaskItems] = useState([]);
+
   const handleAddTask = () => {
     setTaskItems([...taskItems, task]);
     setTask(null);
@@ -32,13 +33,11 @@ export default function App() {
         <View style={styles.items}>
           {taskItems.map((item, index) => {
             return (
-              <TouchableOpacity key={index} onPress={() => completeTask()}>
-                <Task text={item} />;
+              <TouchableOpacity key={index} onPress={() => completeTask(index)}>
+                <Task text={item} />
               </TouchableOpacity>
             );
           })}
-          {/* <Task text={"This is Task 1"} />
-          <Task text={"This is Task 2"} /> */}
         </View>
       </View>
 
